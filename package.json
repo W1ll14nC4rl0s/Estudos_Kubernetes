@@ -4,7 +4,8 @@
   "description": "Estudos Node",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 10000 --exit ./testes/*Test.js"
+    "test": "mocha --timeout 10000 --exit ./testes/*Test.js",
+    "start": "node Api.js"
   },
   "repository": {
     "type": "git",

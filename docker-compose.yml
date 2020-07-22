@@ -1,0 +1,8 @@
+version: '3'
+services:
+  api-herois:
+    build: .
+    ports:
+      -5000:5000
+      enviroment:
+        MONGO_URL: mongodb
