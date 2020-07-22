@@ -1,11 +1,11 @@
 {
-  "name": "Studies from Docker and Kubernetes",
+  "name": "14-release-finish",
   "version": "1.0.0",
-  "description": "Estudos Docker",
+  "description": "Estudos Node",
   "main": "index.js",
   "scripts": {
     "test": "mocha --timeout 10000 --exit ./testes/*Test.js",
-    "start": "node Api.js"
+    "start": "nodemon Api.js"
   },
   "repository": {
     "type": "git",
