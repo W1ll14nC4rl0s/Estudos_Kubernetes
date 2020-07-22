@@ -14,18 +14,18 @@ class Postgres extends Crud{
         return new Sequelize(
             process.env.POSTGRES_URL,
         {
-            //host: 'localhost',
-            //dialect: 'postgres',
+            host: 'localhost',
+            dialect: 'postgres',
             quoteIdentifiers: false,
             operatorsAliases: 0,
-            logging: false,
-            ssl: process.env.SSL_DB,
-            dialectOptions:{
-                ssl:{
-                    require: process.env.SSL_DB,
-                    rejectUnauthorized: false
-                } 
-            }
+            //logging: false,
+            // ssl: process.env.SSL_DB,
+            // dialectOptions:{
+            //     ssl:{
+            //         require: process.env.SSL_DB,
+            //         rejectUnauthorized: false
+            //     } 
+            // }
         })
     }
 

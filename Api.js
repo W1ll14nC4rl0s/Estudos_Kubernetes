@@ -3,18 +3,6 @@ const {config} = require('dotenv')
 const {join} = require('path')
 const {ok} = require('assert')
 
-const env = process.env.NODE_ENV || 'dev'
-
-ok(env === 'prod' || env === 'dev' , 'Parametro env inválido')
-
-const configPath = join(__dirname, './config', `.env.${env}`)
-
-console.log('Arquives Config', configPath)
-
-config({
-    path: configPath
-})
-
 const Hapi = require('@hapi/hapi')
 const HapiSwagger = require('hapi-swagger')
 const Hapijwt = require('hapi-auth-jwt2')
@@ -34,7 +22,19 @@ const schemaAuth = require('./src/db/MongoDb/schemas/SchemaAuth')
 const routeHero = require('./src/Routes/HeroisRoute')
 const routeAuth = require('./src/Routes/AuthRoutes')
 
-const KEY = 'my_password_secret'
+const KEY = process.env.KEY //'my_password_secret'
+
+const env = process.env.NODE_ENV || 'dev'
+
+ok(env === 'prod' || env === 'dev' , 'Parametro env inválido')
+
+const configPath = join(__dirname, './config', `.env.${env}`)
+
+console.log('Arquives Config', configPath)
+
+config({
+    path: configPath
+})
 
 function mapMethods(instance, methods) {
    
@@ -54,7 +54,7 @@ const init = async ()=>{
     const DbMongo = new Context(new MongoDb(connMongodb, schemaAuth))
    
     const Server = Hapi.Server({
-        port: process.env.PORT || 6000    
+        port: process.env.PORT || 5000    
     })
 
     const Swagger = {

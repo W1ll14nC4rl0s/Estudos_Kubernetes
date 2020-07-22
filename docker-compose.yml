@@ -2,7 +2,33 @@ version: '3'
 services:
   api-herois:
     build: .
+    ports: 
+      - 5000:5000
+    
+    environment:
+      MONGODB_URL: mongodb
+      POSTGRES_URL: postgres
+
+    depends_on :
+      - mongodb
+      - postgres
+    
+    links:
+      - mongodb
+      - postgres
+    
+  mongodb:
+    image: mongo:4
+    ports: 
+      - 27017:27017
+      
+  postgres:
+    image: postgres
     ports:
-      -5000:5000
-      enviroment:
-        MONGO_URL: mongodb
+      - 5432:5432
+    
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: herois
+   
