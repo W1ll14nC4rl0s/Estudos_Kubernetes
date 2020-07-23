@@ -1,13 +1,13 @@
 
-// const {config} = require('dotenv')
-// const {join} = require('path')
-// const {ok} = require('assert')
+const {config} = require('dotenv')
+const {join} = require('path')
+const {ok} = require('assert')
 
 const Hapi = require('@hapi/hapi')
 const HapiSwagger = require('hapi-swagger')
 const Hapijwt = require('hapi-auth-jwt2')
-//const HapijwtConfig = require('./config/jsonwebtoken');
 const Inert = require('inert')
+//const HapijwtConfig = require('./config/jsonwebtoken');
 const Vision = require('vision')
 
 const Context = require('./src/db/strategy/base/ContextStrategy')
@@ -24,17 +24,17 @@ const routeAuth = require('./src/Routes/AuthRoutes')
 
 const KEY = process.env.KEY //'my_password_secret'
 
-// const env = process.env.NODE_ENV || 'dev'
+const env = process.env.NODE_ENV || 'dev'
 
-// ok(env === 'prod' || env === 'dev' , 'Parametro env inválido')
+ok(env === 'prod' || env === 'dev' , 'Parametro env inválido')
 
-// const configPath = join(__dirname, './config', `.env.${env}`)
+const configPath = join(__dirname, './config', `.env.${env}`)
 
-// //console.log('Arquives Config', configPath)
+//console.log('Arquives Config', configPath)
 
-// config({
-//     path: configPath
-// })
+config({
+    path: configPath
+})
 
 function mapMethods(instance, methods) {
    

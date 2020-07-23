@@ -39,3 +39,9 @@ docker run \
 docker exec -it mongodb \
     mongo --host localhost -u admin -p senha --authenticationDatabase admin \
     --eval "db.getSiblingDB('herois').createUser({user: 'williancarlos', pwd: '12345', roles: [{role: 'readWrite', db: 'herois'}]})"
+
+## excluir todas as imagens, containers, e redes incluidas no docker
+docker system prune -a -f --volumes
+
+## subir uma imagem para o docker
+docker build -t <aplicação>

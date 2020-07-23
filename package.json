@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --timeout 10000 --exit ./testes/*Test.js",
-    "start": "nodemon Api.js"
+    "start": "node Api.js"
   },
   "repository": {
     "type": "git",

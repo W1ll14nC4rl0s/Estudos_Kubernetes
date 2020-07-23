@@ -11,21 +11,22 @@ class Postgres extends Crud{
     }
 
     static Connect(){
+        console.log('CONEXÃO', process.env.POSTGRES_URL)
         return new Sequelize(
             process.env.POSTGRES_URL,
         {
-            host: 'localhost',
-            dialect: 'postgres',
+            // host: 'localhost',
+            // dialect: 'postgres',
             quoteIdentifiers: false,
             operatorsAliases: 0,
-            //logging: false,
-            // ssl: process.env.SSL_DB,
-            // dialectOptions:{
-            //     ssl:{
-            //         require: process.env.SSL_DB,
-            //         rejectUnauthorized: false
-            //     } 
-            // }
+            logging: false,
+            ssl: true,//process.env.SSL_DB,
+            dialectOptions:{
+                ssl:{
+                    require: true,//process.env.SSL_DB,
+                    rejectUnauthorized: false
+                } 
+            }
         })
     }
 
